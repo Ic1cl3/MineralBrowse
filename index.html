@@ -4,45 +4,86 @@
 <meta charset="UTF-8">
 <title>Mindat Mineral Browser</title>
 <style>
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
 }
 
-#sidebar {
-    width: 260px;
+header {
+    padding: 16px 20px;
+    background: #f0f4f8;
+    border-bottom: 1px solid #ccc;
+}
+
+#content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 230px;
+    min-width: 230px;
     overflow-y: auto;
-    border-right: 1px solid #ccc;
+    height: 100%;
     padding: 10px;
     box-sizing: border-box;
     background: #f8f8f8;
 }
 
-#sidebar h2 {
+.sidebar:first-of-type {
+    border-right: 1px solid #ccc;
+}
+
+.sidebar:last-of-type {
+    border-left: 1px solid #ccc;
+}
+
+.sidebar h2 {
     margin-top: 0;
     font-size: 20px;
 }
 
-#sidebar ul {
+.sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-#sidebar li {
+.sidebar li {
     margin: 2px 0;
 }
 
-#sidebar a {
+.sidebar a {
     text-decoration: none;
     color: #004080;
     padding: 4px 6px;
     border-radius: 4px;
 }
 
-#sidebar a:hover {
+ a {
+    text-decoration: none;
+    color: #004080;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+ ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ }
+
+.sidebar a:hover {
     background: #ddeeff;
 }
 
@@ -54,7 +95,34 @@ iframe {
 </head>
 <body>
 
-<div id="sidebar">
+<header>
+    <div>
+    <h1>Mindat Mineral Browser</h1>
+    <p>Credit:
+    <a href="https://ic1cl3.github.io/icicle/">Icicle</a> - Site
+    <br>
+    jim_ox - Scraping Mindat for me
+    </p>
+    </div>
+    <div style="position: absolute; left: 460px; top: 0px; padding: 16px 20px; border-left: 4px solid #000">
+        Extra Links (External):
+        <ul>
+            <li><a target="mindat" href="https://github.com/Ic1cl3/MineralSearch"> - Repo</a></li>
+        </ul>
+        <br>
+        <br>
+        Extra links (Embedded):
+        <br>
+        <ul>
+            <li><a target="mindat" href="https://www.scioly.rocks/"> - Scioly.rocks</a></li>
+            <li><a target="mindat" href="https://scioly.org/wiki/Rocks_and_Minerals"> - R&M Wiki Page</a></li>
+        </ul>
+    </div>
+</header>
+
+<div id="content">
+
+<div class="sidebar">
 <h2>Wikipedia Links</h2>
 <ul>
 
@@ -176,7 +244,7 @@ iframe {
 </ul>
 </div>
 
-<div id="sidebar">
+<div class="sidebar">
 <h2>Mindat Links</h2>
 <ul>
 
@@ -304,6 +372,8 @@ iframe {
     title="Minerals Browser"
     sandbox="allow-scripts allow-same-origin">
 </iframe>
+
+</div>
 
 </body>
 </html>
